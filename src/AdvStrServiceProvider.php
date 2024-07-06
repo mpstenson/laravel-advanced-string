@@ -2,10 +2,9 @@
 
 namespace mpstenson\AdvStr;
 
+use Illuminate\Support\Str;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use mpstenson\AdvStr\Commands\AdvStrCommand;
-use Illuminate\Support\Str;
 
 class AdvStrServiceProvider extends PackageServiceProvider
 {
@@ -15,11 +14,13 @@ class AdvStrServiceProvider extends PackageServiceProvider
             foreach (get_class_methods(AdvStr::class) as $methodName) {
                 Str::macro($methodName, function () use ($methodName) {
                     $args = func_get_args();
+
                     return (new AdvStr())->$methodName(...$args);
                 });
             }
         }
     }
+
     public function configurePackage(Package $package): void
     {
         /*

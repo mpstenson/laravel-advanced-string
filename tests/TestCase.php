@@ -3,8 +3,8 @@
 namespace mpstenson\AdvStr\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use mpstenson\AdvStr\AdvStrServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
