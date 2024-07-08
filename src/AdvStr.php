@@ -211,8 +211,8 @@ class AdvStr
             $name = explode(',', $name);
 
             return [
-                'first' => $name[1],
-                'last' => $name[0],
+                'first' => trim($name[1]),
+                'last' => trim($name[0]),
             ];
         } else {
             $name = explode(' ', $name);
