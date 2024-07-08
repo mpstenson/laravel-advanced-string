@@ -181,7 +181,7 @@ public static function redactCreditCard(
 - string: The string with credit card numbers redacted
 
 Note: This method is currently not implemented (TODO).
-```
+
 
 ## Testing
 
