@@ -3,6 +3,7 @@
 namespace mpstenson\AdvStr;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Stringable;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -13,6 +14,12 @@ class AdvStrServiceProvider extends PackageServiceProvider
         if (config('advanced-string.use_str') === true) {
             foreach (get_class_methods(AdvStr::class) as $methodName) {
                 Str::macro($methodName, function () use ($methodName) {
+                    $args = func_get_args();
+
+                    return (new AdvStr())->$methodName(...$args);
+                });
+
+                Stringable::macro($methodName, function () use ($methodName) {
                     $args = func_get_args();
 
                     return (new AdvStr())->$methodName(...$args);
