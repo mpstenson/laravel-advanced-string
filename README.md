@@ -56,7 +56,7 @@ Str::redactSsn('123-45-6789')
 
 ## Available Methods
 
-### advpassword
+### advPassword
 
 Generates a random, secure password.
 
