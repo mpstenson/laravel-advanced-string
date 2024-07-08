@@ -19,6 +19,24 @@ OR...
 ```php
 AdvStr::redactSsn('My social security number is 222-22-2222'); // My social security number is xxxxxx
 ```
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Available Methods](#available-methods)
+  - [advPassword](#advpassword)
+  - [readTime](#readtime)
+  - [charWrap](#charwrap)
+  - [splitName](#splitname)
+  - [redactSsn](#redactssn)
+  - [redactCreditCard](#redactcreditcard)
+- [Testing](#testing)
+- [Changelog](#changelog)
+- [Contributing](#contributing)
+- [Security Vulnerabilities](#security-vulnerabilities)
+- [Credits](#credits)
+- [License](#license)
+
 ## Installation
 
 You can install the package via composer:
@@ -56,7 +74,7 @@ Str::redactSsn('123-45-6789')
 
 ## Available Methods
 
-### advPassword
+### [advPassword](#advpassword)
 
 Generates a random, secure password.
 
@@ -86,7 +104,7 @@ public static function advPassword(
 #### Returns:
 - string: Generated password
 
-### readTime
+### [readTime](#readtime)
 
 Calculates the read time of a string.
 
@@ -104,7 +122,7 @@ public static function readTime(
 #### Returns:
 - int: Estimated read time in seconds
 
-### charWrap
+### [charWrap](#charwrap)
 
 Wraps a string at a given number of characters regardless of words.
 
@@ -122,7 +140,7 @@ public static function charWrap(
 #### Returns:
 - string: The wrapped string
 
-### splitName
+### [splitName](#splitname)
 
 Splits a full name into first name, middle name (if present), and last name, removing any prefixes and suffixes. This method can handle both "Firstname Lastname" and "Lastname, Firstname" formats.
 
@@ -138,7 +156,7 @@ public static function splitName(
 #### Returns:
 - array: An associative array containing 'first', 'middle' (if present), and 'last' name
 
-### redactSsn
+### [redactSsn](#redactssn)
 
 Redacts Social Security Numbers (SSN) in a string.
 
@@ -160,7 +178,7 @@ public static function redactSsn(
 #### Returns:
 - string: The string with SSNs redacted
 
-### redactCreditCard
+### [redactCreditCard](#redactcreditcard)
 
 Redacts credit card numbers in a string.
 
