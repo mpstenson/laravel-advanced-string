@@ -19,7 +19,7 @@ class AdvStr
      * @param  array  $exclude
      * @return string
      */
-    public static function advpassword($length = 32, $letters = true, $numbers = true, $symbols = true, $spaces = false, $upperLetters = false, $lowerLetters = false, $exclude = [])
+    public static function advPassword($length = 32, $letters = true, $numbers = true, $symbols = true, $spaces = false, $upperLetters = false, $lowerLetters = false, $exclude = [])
     {
         $password = new Collection();
 
