@@ -1,4 +1,4 @@
-# The Laravel Advanced String
+# Laravel Advanced String Package
 *Tested, community maintained, supercharged Laravel string functions.*
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mpstenson/laravel-advanced-string.svg?style=flat-square)](https://packagist.org/packages/mpstenson/laravel-advanced-string)
