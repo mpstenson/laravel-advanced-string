@@ -18,12 +18,6 @@ class AdvStrServiceProvider extends PackageServiceProvider
 
                     return (new AdvStr())->$methodName(...$args);
                 });
-
-                Stringable::macro($methodName, function () use ($methodName) {
-                    $args = func_get_args();
-
-                    return (new AdvStr())->$methodName(...$args);
-                });
             }
         }
     }

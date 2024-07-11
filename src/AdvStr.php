@@ -265,8 +265,8 @@ class AdvStr
      * @param  $redacted  // default '********'
      * @return string
      */
-    public static function redactCreditCard($string, $redacted = '********', $exclude = [])
+    /*     public static function redactCreditCard($string, $redacted = '********', $exclude = [])
     {
         // todo
-    }
+    } */
 }
