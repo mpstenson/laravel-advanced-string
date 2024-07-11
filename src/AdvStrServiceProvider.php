@@ -3,7 +3,6 @@
 namespace mpstenson\AdvStr;
 
 use Illuminate\Support\Str;
-use Illuminate\Support\Stringable;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
