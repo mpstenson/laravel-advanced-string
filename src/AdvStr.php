@@ -260,6 +260,22 @@ class AdvStr
     }
 
     /**
+     * Extracts the domain from an email address.
+     *
+     * @param  string  $string  The email address to extract the domain from.
+     * @return string The domain extracted from the email address.
+     */
+    public static function emailDomain($string)
+    {
+        // Extract the domain using regex
+        if (preg_match('/@([a-zA-Z0-9.-]+)/', $string, $matches)) {
+            return $matches[1];
+        }
+
+        return '';
+    }
+
+    /**
      * Redacts credit card numbers and replaces them with a given string
      *
      * @param  $redacted  // default '********'

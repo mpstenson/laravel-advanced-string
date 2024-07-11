@@ -25,11 +25,12 @@ AdvStr::redactSsn('My social security number is 222-22-2222'); // My social secu
 - [Usage](#usage)
 - [Available Methods](#available-methods)
   - [advPassword](#advpassword)
-  - [readTime](#readtime)
   - [charWrap](#charwrap)
-  - [splitName](#splitname)
-  - [redactSsn](#redactssn)
+  - [emailDomain](#emaildomain)
+  - [readTime](#readtime)
   - [redactCreditCard](#redactcreditcard)
+  - [redactSsn](#redactssn)
+  - [splitName](#splitname)
 - [Testing](#testing)
 - [Changelog](#changelog)
 - [Contributing](#contributing)
@@ -104,24 +105,6 @@ public static function advPassword(
 #### Returns:
 - string: Generated password
 
-### [readTime](#readtime)
-
-Calculates the read time of a string.
-
-```php
-public static function readTime(
-    $string, 
-    $wpm = 200
-)
-```
-
-#### Parameters:
-- `$string` (string): The text to calculate read time for
-- `$wpm` (int): Words per minute (default: 200)
-
-#### Returns:
-- int: Estimated read time in seconds
-
 ### [charWrap](#charwrap)
 
 Wraps a string at a given number of characters regardless of words.
@@ -140,22 +123,59 @@ public static function charWrap(
 #### Returns:
 - string: The wrapped string
 
-### [splitName](#splitname)
+### [emailDomain](#emailDomain)
 
-Splits a full name into first name, middle name (if present), and last name, removing any prefixes and suffixes. This method can handle both "Firstname Lastname" and "Lastname, Firstname" formats.
+Wraps a string at a given number of characters regardless of words.
 
 ```php
-public static function splitName(
-    $name
+public static function EmailDomain(
+    $string
 )
 ```
 
 #### Parameters:
-- `$name` (string): The full name to split
+- `$string` (string): The string to extract the email domain from.
 
 #### Returns:
-- array: An associative array containing 'first', 'middle' (if present), and 'last' name
+- string: The email domain from the string
 
+### [readTime](#readtime)
+
+Calculates the read time of a string.
+
+```php
+public static function readTime(
+    $string, 
+    $wpm = 200
+)
+```
+
+#### Parameters:
+- `$string` (string): The text to calculate read time for
+- `$wpm` (int): Words per minute (default: 200)
+
+#### Returns:
+- int: Estimated read time in seconds
+
+### [redactCreditCard](#redactcreditcard)
+Note: This method is currently not implemented (TODO).
+Redacts credit card numbers in a string.
+
+```php
+public static function redactCreditCard(
+    $string, 
+    $redacted = '********', 
+    $exclude = []
+)
+```
+
+#### Parameters:
+- `$string` (string): The string containing credit card numbers to redact
+- `$redacted` (string): The string to replace credit card numbers with (default: '********')
+- `$exclude` (array): An array of credit card types to exclude from redaction
+
+#### Returns:
+- string: The string with credit card numbers redacted
 ### [redactSsn](#redactssn)
 
 Redacts Social Security Numbers (SSN) in a string.
@@ -178,27 +198,21 @@ public static function redactSsn(
 #### Returns:
 - string: The string with SSNs redacted
 
-### [redactCreditCard](#redactcreditcard)
+### [splitName](#splitname)
 
-Redacts credit card numbers in a string.
+Splits a full name into first name, middle name (if present), and last name, removing any prefixes and suffixes. This method can handle both "Firstname Lastname" and "Lastname, Firstname" formats.
 
 ```php
-public static function redactCreditCard(
-    $string, 
-    $redacted = '********', 
-    $exclude = []
+public static function splitName(
+    $name
 )
 ```
 
 #### Parameters:
-- `$string` (string): The string containing credit card numbers to redact
-- `$redacted` (string): The string to replace credit card numbers with (default: '********')
-- `$exclude` (array): An array of credit card types to exclude from redaction
+- `$name` (string): The full name to split
 
 #### Returns:
-- string: The string with credit card numbers redacted
-
-Note: This method is currently not implemented (TODO).
+- array: An associative array containing 'first', 'middle' (if present), and 'last' name
 
 
 ## Testing
