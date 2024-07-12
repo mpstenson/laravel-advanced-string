@@ -198,6 +198,11 @@ class AdvStr
             'IX',
             'X',
         ];
+
+        // Add lower case version of the prefixes while keeping the original versions
+        $prefixes = array_merge($prefixes, array_map('strtolower', $prefixes), array_map('strtoupper', $prefixes));
+        $suffixes = array_merge($suffixes, array_map('strtolower', $suffixes), array_map('strtoupper', $suffixes));
+
         // Remove any matching prefixes
         foreach ($prefixes as $prefix) {
             if (stripos($name, $prefix) === 0) {  // Check if the prefix is at the beginning

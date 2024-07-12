@@ -44,3 +44,27 @@ test('Can remove suffix', function () {
         ->and($name['first'])->toBe('John')
         ->and($name['last'])->toBe('Smith');
 });
+
+test('Dr. Matthew Paul Stenson Jr. is parsed correctly', function () {
+    $name = AdvStr::splitName('dr. matthew paul stenson jr.');
+    expect($name)->toHaveCount(3)
+        ->and($name['first'])->toBe('matthew')
+        ->and($name['middle'])->toBe('paul')
+        ->and($name['last'])->toBe('stenson');
+});
+
+test('Two prefixes are parsed correctly', function () {
+    $name = AdvStr::splitName('Rev Dr. matthew paul stenson jr.');
+    expect($name)->toHaveCount(3)
+        ->and($name['first'])->toBe('matthew')
+        ->and($name['middle'])->toBe('paul')
+        ->and($name['last'])->toBe('stenson');
+});
+
+test('Catch all caps versions', function () {
+    $name = AdvStr::splitName('REV DR. MATTHEW PAUL STENSON JR.');
+    expect($name)->toHaveCount(3)
+        ->and($name['first'])->toBe('MATTHEW')
+        ->and($name['middle'])->toBe('PAUL')
+        ->and($name['last'])->toBe('STENSON');
+});
