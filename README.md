@@ -12,6 +12,11 @@ The Laravel Advanced String package by default adds macros to the `Str` class so
 and use the `AdvStr` class directly.
 
 ### Example
+
+
+https://github.com/user-attachments/assets/ad4eb551-f383-4ed7-b9db-c44823e637c8
+
+
 ```php
 Str::redactSsn('My social security number is 222-22-2222'); // My social security number is xxxxxx
 ```
