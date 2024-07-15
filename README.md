@@ -38,8 +38,6 @@ AdvStr::redactSsn('My social security number is 222-22-2222'); // My social secu
   - [splitName](#splitname)
 - [Testing](#testing)
 - [Changelog](#changelog)
-- [Contributing](#contributing)
-- [Security Vulnerabilities](#security-vulnerabilities)
 - [Credits](#credits)
 - [License](#license)
 
