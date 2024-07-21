@@ -158,7 +158,7 @@ public static function readTime(
 - `$wpm` (int): Words per minute (default: 200)
 
 #### Returns:
-- int: Estimated read time in seconds
+- float: Estimated read time in seconds
 
 ### [redactCreditCard](#redactcreditcard)
 Redacts credit card numbers in a string.

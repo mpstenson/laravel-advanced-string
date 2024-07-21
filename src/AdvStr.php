@@ -78,7 +78,7 @@ class AdvStr
      *
      * @param  string  $string
      * @param  int  $wpm
-     * @return int
+     * @return float
      */
     public static function readTime($string, $wpm = 200)
     {
