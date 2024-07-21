@@ -302,24 +302,25 @@ class AdvStr
         $jcb = '/\b(?:2131|1800|35\d{2})(?:[-\s]?[0-9]{4}){3}\b/';
 
         // for each pattern not excluded run a preg_replace
-        if (!in_array('visa', $exclude)) {
+        if (! in_array('visa', $exclude)) {
             $string = preg_replace($visa, $redacted, $string);
         }
-        if (!in_array('mastercard', $exclude)) {
+        if (! in_array('mastercard', $exclude)) {
             $string = preg_replace($mastercard, $redacted, $string);
         }
-        if (!in_array('amex', $exclude)) {
+        if (! in_array('amex', $exclude)) {
             $string = preg_replace($amex, $redacted, $string);
         }
-        if (!in_array('discover', $exclude)) {
+        if (! in_array('discover', $exclude)) {
             $string = preg_replace($discover, $redacted, $string);
         }
-        if (!in_array('diners', $exclude)) {
+        if (! in_array('diners', $exclude)) {
             $string = preg_replace($diners, $redacted, $string);
         }
-        if (!in_array('jcb', $exclude)) {
+        if (! in_array('jcb', $exclude)) {
             $string = preg_replace($jcb, $redacted, $string);
         }
+
         return $string;
     }
 }
