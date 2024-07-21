@@ -128,10 +128,10 @@ public static function charWrap(
 
 ### [emailDomain](#emailDomain)
 
-Wraps a string at a given number of characters regardless of words.
+Extracts the domain part of an email address, including subdomains.
 
 ```php
-public static function EmailDomain(
+public static function emailDomain(
     $string
 )
 ```
