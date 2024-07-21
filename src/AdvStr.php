@@ -286,8 +286,40 @@ class AdvStr
      * @param  $redacted  // default '********'
      * @return string
      */
-    /*     public static function redactCreditCard($string, $redacted = '********', $exclude = [])
+    public static function redactCreditCard($string, $redacted = '********', $exclude = [])
     {
-        // todo
-    } */
+        // Check visa pattern
+        $visa = '/\b4[0-9]{3}[-\s]?[0-9]{4}[-\s]?[0-9]{4}[-\s]?[0-9]{4}\b/';
+        // Check mastercard pattern
+        $mastercard = '/\b(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)(?:[-\s]?[0-9]{4}){3}\b/';
+        // Check amex pattern
+        $amex = '/\b3[47][0-9]{13}\b/';
+        // Check discover pattern
+        $discover = '/\b6(?:011[-\s]?[0-9]{4}[-\s]?[0-9]{4}[-\s]?[0-9]{4}|5[0-9]{2}[-\s]?[0-9]{4}[-\s]?[0-9]{4}[-\s]?[0-9]{4})\b/';
+        // Check diners club pattern
+        $diners = '/\b3(?:0[0-5]|[68][0-9])(?:[-\s]?[0-9]{4}){2}[-\s]?[0-9]{3}\b/';
+        // Check jcb pattern
+        $jcb = '/\b(?:2131|1800|35\d{2})(?:[-\s]?[0-9]{4}){3}\b/';
+
+        // for each pattern not excluded run a preg_replace
+        if (!in_array('visa', $exclude)) {
+            $string = preg_replace($visa, $redacted, $string);
+        }
+        if (!in_array('mastercard', $exclude)) {
+            $string = preg_replace($mastercard, $redacted, $string);
+        }
+        if (!in_array('amex', $exclude)) {
+            $string = preg_replace($amex, $redacted, $string);
+        }
+        if (!in_array('discover', $exclude)) {
+            $string = preg_replace($discover, $redacted, $string);
+        }
+        if (!in_array('diners', $exclude)) {
+            $string = preg_replace($diners, $redacted, $string);
+        }
+        if (!in_array('jcb', $exclude)) {
+            $string = preg_replace($jcb, $redacted, $string);
+        }
+        return $string;
+    }
 }

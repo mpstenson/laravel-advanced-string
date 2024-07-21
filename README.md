@@ -161,7 +161,6 @@ public static function readTime(
 - int: Estimated read time in seconds
 
 ### [redactCreditCard](#redactcreditcard)
-Note: This method is currently not implemented (TODO).
 Redacts credit card numbers in a string.
 
 ```php
@@ -175,7 +174,7 @@ public static function redactCreditCard(
 #### Parameters:
 - `$string` (string): The string containing credit card numbers to redact
 - `$redacted` (string): The string to replace credit card numbers with (default: '********')
-- `$exclude` (array): An array of credit card types to exclude from redaction
+- `$exclude` (array): An array of credit card types to exclude from redaction. Possible types: 'mastercard','visa','amex','discover','diners','jcb'
 
 #### Returns:
 - string: The string with credit card numbers redacted
