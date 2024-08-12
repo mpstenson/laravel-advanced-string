@@ -30,6 +30,13 @@ class AdvStrServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-advanced-string')
-            ->hasConfigFile();
+            ->hasConfigFile('advanced-string');
+    }
+
+    function registeringPackage()
+    {
+    $this->publishes([
+        __DIR__.'/../config/advanced-string.php' => config_path('advanced-string.php'),
+    ], 'laravel-advanced-string-config');
     }
 }
