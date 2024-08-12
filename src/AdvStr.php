@@ -21,7 +21,7 @@ class AdvStr
      */
     public static function advPassword($length = 32, $letters = true, $numbers = true, $symbols = true, $spaces = false, $upperLetters = false, $lowerLetters = false, $exclude = [])
     {
-        $password = new Collection();
+        $password = new Collection;
 
         // $letters enables both upper case and lower case letters to create a mixed case password
         if ($letters === true) {

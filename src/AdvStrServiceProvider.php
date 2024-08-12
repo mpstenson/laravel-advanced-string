@@ -15,7 +15,7 @@ class AdvStrServiceProvider extends PackageServiceProvider
                 Str::macro($methodName, function () use ($methodName) {
                     $args = func_get_args();
 
-                    return (new AdvStr())->$methodName(...$args);
+                    return (new AdvStr)->$methodName(...$args);
                 });
             }
         }
@@ -30,6 +30,13 @@ class AdvStrServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-advanced-string')
-            ->hasConfigFile();
+            ->hasConfigFile('advanced-string');
+    }
+
+    public function registeringPackage()
+    {
+        $this->publishes([
+            __DIR__.'/../config/advanced-string.php' => config_path('advanced-string.php'),
+        ], 'laravel-advanced-string-config');
     }
 }
