@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-advanced-string` will be documented in this file.
 
+## 1.0.1 - 2024-08-12
+
+### What's Changed
+
+* fix issue #3 where config file would not publish by @mpstenson in https://github.com/mpstenson/laravel-advanced-string/pull/4
+
+**Full Changelog**: https://github.com/mpstenson/laravel-advanced-string/compare/1.0.0...1.0.1
+
 ## 1.0.0 - 2024-07-21
 
 ### What's Changed
