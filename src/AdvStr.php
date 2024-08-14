@@ -6,6 +6,9 @@ use Illuminate\Support\Collection;
 
 class AdvStr
 {
+
+    private static ?array $words = null;
+
     /**
      * Generate a random, secure password.
      *
@@ -322,5 +325,46 @@ class AdvStr
         }
 
         return $string;
+    }
+    
+    /**
+     * Generate a random word from the loaded word list.
+     *
+     * @return string A randomly selected word.
+     */
+    public static function randomWord(): string
+    {
+        self::loadWords();
+        return self::$words[array_rand(self::$words)];
+    }
+
+    /**
+     * Generate a random phrase with a specified number of words.
+     *
+     * @param int $wordCount The number of words in the phrase.
+     * @param string $separator The separator between words (default: '-').
+     * @return string The generated random phrase.
+     */
+    public static function randomPhrase(int $wordCount, string $separator = '-'): string
+    {
+        self::loadWords();
+        $phrase = [];
+        $poolCount = count(self::$words);
+        for ($i = 0; $i < $wordCount; $i++) {
+            $phrase[] = self::$words[random_int(0, $poolCount - 1)];
+        }
+        return implode($separator, $phrase);
+    }
+
+    /**
+     * Load the words from the JSON file if not already loaded.
+     *
+     * @return void
+     */
+    private static function loadWords(): void
+    {
+        if (self::$words === null) {
+            self::$words = json_decode(file_get_contents(__DIR__ . '/words.json'), true);
+        }
     }
 }
