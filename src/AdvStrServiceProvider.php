@@ -15,7 +15,7 @@ class AdvStrServiceProvider extends PackageServiceProvider
                 Str::macro($methodName, function () use ($methodName) {
                     $args = func_get_args();
 
-                    return (new AdvStr())->$methodName(...$args);
+                    return (new AdvStr)->$methodName(...$args);
                 });
             }
         }

@@ -15,6 +15,6 @@ test('Random words are not always the same', function () {
 
 test('Generated word is in the word list', function () {
     $word = AdvStr::randomWord();
-    $wordList = json_decode(file_get_contents(__DIR__ . '/../src/words.json'), true);
+    $wordList = json_decode(file_get_contents(__DIR__.'/../src/words.json'), true);
     expect($wordList)->toContain($word);
 });

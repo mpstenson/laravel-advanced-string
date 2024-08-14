@@ -6,7 +6,6 @@ use Illuminate\Support\Collection;
 
 class AdvStr
 {
-
     private static ?array $words = null;
 
     /**
@@ -24,7 +23,7 @@ class AdvStr
      */
     public static function advPassword($length = 32, $letters = true, $numbers = true, $symbols = true, $spaces = false, $upperLetters = false, $lowerLetters = false, $exclude = [])
     {
-        $password = new Collection();
+        $password = new Collection;
 
         // $letters enables both upper case and lower case letters to create a mixed case password
         if ($letters === true) {
@@ -326,7 +325,7 @@ class AdvStr
 
         return $string;
     }
-    
+
     /**
      * Generate a random word from the loaded word list.
      *
@@ -335,14 +334,15 @@ class AdvStr
     public static function randomWord(): string
     {
         self::loadWords();
+
         return self::$words[array_rand(self::$words)];
     }
 
     /**
      * Generate a random phrase with a specified number of words.
      *
-     * @param int $wordCount The number of words in the phrase.
-     * @param string $separator The separator between words (default: '-').
+     * @param  int  $wordCount  The number of words in the phrase.
+     * @param  string  $separator  The separator between words (default: '-').
      * @return string The generated random phrase.
      */
     public static function randomPhrase(int $wordCount, string $separator = '-'): string
@@ -353,18 +353,17 @@ class AdvStr
         for ($i = 0; $i < $wordCount; $i++) {
             $phrase[] = self::$words[random_int(0, $poolCount - 1)];
         }
+
         return implode($separator, $phrase);
     }
 
     /**
      * Load the words from the JSON file if not already loaded.
-     *
-     * @return void
      */
     private static function loadWords(): void
     {
         if (self::$words === null) {
-            self::$words = json_decode(file_get_contents(__DIR__ . '/words.json'), true);
+            self::$words = json_decode(file_get_contents(__DIR__.'/words.json'), true);
         }
     }
 }

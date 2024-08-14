@@ -14,7 +14,7 @@ test('words are initially null', function () {
     $reflection = new ReflectionClass(AdvStr::class);
     $property = $reflection->getProperty('words');
     $property->setAccessible(true);
-    
+
     expect($property->getValue())->toBeNull();
 });
 
@@ -26,7 +26,7 @@ test('words are loaded after calling loadWords', function () {
 
     $property = $reflection->getProperty('words');
     $property->setAccessible(true);
-    
+
     expect($property->getValue())->toBeArray()->not->toBeEmpty();
 });
 
@@ -38,9 +38,9 @@ test('words are loaded from words.json file', function () {
 
     $property = $reflection->getProperty('words');
     $property->setAccessible(true);
-    
-    $wordsFromJson = json_decode(file_get_contents(__DIR__ . '/../src/words.json'), true);
-    
+
+    $wordsFromJson = json_decode(file_get_contents(__DIR__.'/../src/words.json'), true);
+
     expect($property->getValue())->toBe($wordsFromJson);
 });
 
@@ -48,7 +48,7 @@ test('words are only loaded once', function () {
     $reflection = new ReflectionClass(AdvStr::class);
     $method = $reflection->getMethod('loadWords');
     $method->setAccessible(true);
-    
+
     // Call loadWords twice
     $method->invoke(null);
     $firstLoadTime = microtime(true);
