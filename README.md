@@ -32,6 +32,8 @@ AdvStr::redactSsn('My social security number is 222-22-2222'); // My social secu
   - [advPassword](#advpassword)
   - [charWrap](#charwrap)
   - [emailDomain](#emaildomain)
+  - [randomPhrase](#randomphrase)
+  - [randomWord](#randomword)
   - [readTime](#readtime)
   - [redactCreditCard](#redactcreditcard)
   - [redactSsn](#redactssn)
@@ -141,6 +143,38 @@ public static function emailDomain(
 
 #### Returns:
 - string: The email domain from the string
+
+### [randomPhrase](#randomphrase)
+
+Returns a random phrase with a configurable delimiter.
+
+```php
+public static function randomPhrase(
+    $wordCount,
+    $separator = '-'
+)
+```
+
+#### Parameters:
+- `$wordCount` (int): The number of words in the phrase.
+- `$separator` (string): The separator between words (default: '-').
+
+#### Returns:
+- string: The generated random phrase.
+### [randomWord](#randomword)
+
+Returns a random word.
+
+```php
+public static function randomWord(
+)
+```
+
+#### Parameters:
+- none
+
+#### Returns:
+- string: A random word
 
 ### [readTime](#readtime)
 
