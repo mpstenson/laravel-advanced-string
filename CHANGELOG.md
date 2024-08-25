@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-advanced-string` will be documented in this file.
 
+## 1.1.0 - 2024-08-25
+
+### What's Changed
+
+* RandomWord and RandomPhrase functions by @mpstenson in https://github.com/mpstenson/laravel-advanced-string/pull/5
+
+**Full Changelog**: https://github.com/mpstenson/laravel-advanced-string/compare/1.0.1...1.1.0
+
 ## 1.0.1 - 2024-08-12
 
 ### What's Changed
